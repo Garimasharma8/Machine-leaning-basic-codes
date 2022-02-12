@@ -4,4 +4,4 @@
 # b) Artifical neural network (ANN)
 # c) Support vector machines
 
-# Contact for more information on codes at garima.sharma@ryerson.ca
+# Contact : garima.sharma@ryerson.ca
