@@ -3,5 +3,6 @@
 # a) Linear regression
 # b) Artifical neural network (ANN)
 # c) Support vector machines
+# d) CNN on fashion_mnist data
 
 # Contact : garima.sharma@ryerson.ca
