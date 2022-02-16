@@ -4,5 +4,6 @@
 # b) Artifical neural network (ANN)
 # c) Support vector machines
 # d) CNN on fashion_mnist data
+# e) RNN on dataset- google stock price prediction
 
 # Contact : garima.sharma@ryerson.ca
