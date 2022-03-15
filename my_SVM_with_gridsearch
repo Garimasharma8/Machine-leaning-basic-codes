@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar 14 08:53:54 2022
+
+@author: garimasharma
+my first SVM on python, on breast_cancer_csv data
+"""
+# the main steps for designing svm model are:
+    # 1. import libraries
+    # 2. Import dataset
+    # 3. Dataset split-train and test
+    # 4. Fit model on train dataset
+    # 5. Predict model on test set
+    # 6. check accuracy rate and print classification report
+    # 7. Perform gridsearch CV to select best hyperparameters
+    # 8. Again fit and predict on model and check accuracy rate
+    
+#%% Import librarries
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib as plt
+from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, accuracy_score
+from sklearn import datasets
+from sklearn.model_selection import GridSearchCV
+
+#%% Import dataset- breast_cancer.csv in pandas dataframe
+
+# df = pd.read_csv('/Users/garimasharma/opt/anaconda3/pkgs/scikit-learn-0.24.2-py39hb2f4e1b_0/lib/python3.9/site-packages/sklearn/datasets/data/breast_cancer.csv')
+
+dataset = datasets.load_breast_cancer()
+
+data = dataset.data
+target = dataset.target
+
+[x_train, x_test, y_train, y_test] = train_test_split(data, target, test_size=0.3, random_state=10)
+
+
+#%% genearte svm model and fit data on it
+
+model = SVC()
+
+model.fit(x_train, y_train)
+
+y_predict =  model.predict(x_test)
+
+#%% classification report
+
+accuracy_svm = accuracy_score(y_test, y_predict)
+
+report = classification_report(y_test, y_predict)
+
+#%% gridsearch CV ; select the best hyperparameters from a set of parameters, for svm the 
+# hyperparameters are C: cost of misclassification and gamma: gaussian radial basis 
+
+hyperparameters = {'C': [10,20,50], 'gamma': [0.001, 0.0001,0.00001] }
+
+grid = GridSearchCV(model, hyperparameters)
+
+grid.fit(x_train, y_train)
+
+print(grid.best_params_)
+
+new_predict = grid.predict(x_test)
+
+new_accuracy = accuracy_score(y_test, new_predict)
+print("The accuracy rate is:", new_accuracy)
+
+
+
