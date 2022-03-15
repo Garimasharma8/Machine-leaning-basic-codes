@@ -6,4 +6,5 @@
 # d) CNN on fashion_mnist data
 # e) RNN on dataset- google stock price prediction (train.csv and Google_stock_price_test.csv)
 # f) Self organizing maps (unsupervised deep networks, credit card dataset)
+# g) Support vector machine with gridsearch
 # Contact : garima.sharma@ryerson.ca
