@@ -7,4 +7,5 @@
 # e) RNN on dataset- google stock price prediction (train.csv and Google_stock_price_test.csv)
 # f) Self organizing maps (unsupervised deep networks, credit card dataset)
 # g) Support vector machine with gridsearch
+# h) Restricted boltman machine for movie recommendation system
 # Contact : garima.sharma@ryerson.ca
